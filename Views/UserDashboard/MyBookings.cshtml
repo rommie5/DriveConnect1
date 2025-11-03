@@ -1,0 +1,35 @@
+
+@{
+    Layout = "_UserLayout";
+    ViewData["Title"] = "My Bookings";
+}
+
+<h2>My Bookings</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Car</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Status</th>
+            <th>Total Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var booking in Model)
+        {
+            <tr>
+                <td>@booking.Car.Make @booking.Car.Model</td>
+                <td>@booking.StartDate.ToShortDateString()</td>
+                <td>@booking.EndDate.ToShortDateString()</td>
+                <td>@booking.Status</td>
+                <td>@booking.TotalPrice.ToString("C")</td>
+                <td>
+                    <a asp-action="BookingDetails" asp-route-id="@booking.Id">View</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

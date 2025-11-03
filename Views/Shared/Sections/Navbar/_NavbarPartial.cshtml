@@ -1,0 +1,155 @@
+@if (ViewData["navbarFull"] != null)
+{
+    <div class="navbar-brand app-brand demo d-none d-xl-flex py-0 me-4">
+        <a asp-controller="Dashboards" asp-action="Index" class="app-brand-link gap-2">
+            <span class="app-brand-logo demo">
+                @await Html.PartialAsync("../_Partials/_Macros")
+            </span>
+            <span class="app-brand-text demo menu-text fw-bold text-heading">Drive Connect</span>
+        </a>
+
+        @if (Convert.ToBoolean(@TempData.Peek("menuHorizontal")).ToString() == "True")
+        {
+            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-xl-none">
+                <i class="icon-base bx bx-chevron-left d-flex align-items-center justify-content-center"></i>
+            </a>
+        }
+    </div>
+}
+
+@if (ViewData["navbarHideToggle"] == null)
+{
+    <div class="layout-menu-toggle navbar-nav align-items-xl-center me-4 me-xl-0 d-xl-none">
+        <a class="nav-item nav-link px-0 me-xl-6" href="javascript:void(0)">
+            <i class="icon-base bx bx-menu bx-md"></i>
+        </a>
+    </div>
+}
+
+
+<div class="navbar-nav-right d-flex align-items-center justify-content-end" id="navbar-collapse">
+
+    <!-- Search -->
+    <div class="navbar-nav align-items-center">
+        <div class="nav-item nav-search">
+            <a href="javascript:void(0);" class="nav-link search-toggler px-2" data-bs-toggle="modal" data-bs-target="#searchModal">
+                <i class="icon-base bx bx-search icon-lg"></i>
+            </a>
+        </div>
+    </div>
+    <!-- /Search -->
+
+    <ul class="navbar-nav flex-row align-items-center ms-md-auto">
+
+        <!-- Notifications -->
+        <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-4 me-xl-2">
+            <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                <i class="icon-base bx bx-bell icon-lg"></i>
+                <span class="badge rounded-pill bg-danger badge-notifications">3</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end py-0">
+                <li class="dropdown-menu-header border-bottom">
+                    <div class="dropdown-header d-flex align-items-center py-3">
+                        <h5 class="text-body mb-0 me-auto">Notifications</h5>
+                        <a href="javascript:void(0)" class="dropdown-notifications-all text-body" data-bs-toggle="tooltip" data-bs-placement="top" title="Mark all as read"><i class="icon-base bx bx-envelope-open"></i></a>
+                    </div>
+                </li>
+                <li class="dropdown-notifications-list scrollable-container">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item list-group-item-action dropdown-notifications-item">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0 me-3">
+                                    <div class="avatar">
+                                        <span class="avatar-initial rounded-circle bg-label-success"><i class="icon-base bx bx-car"></i></span>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-1">New Reservation</h6>
+                                    <p class="mb-0">Toyota Camry booked by John Smith</p>
+                                    <small class="text-body-secondary">5 minutes ago</small>
+                                </div>
+                                <div class="flex-shrink-0 dropdown-notifications-actions">
+                                    <a href="javascript:void(0)" class="dropdown-notifications-read"><span class="badge rounded-pill badge-dot bg-success"></span></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item list-group-item-action dropdown-notifications-item">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0 me-3">
+                                    <div class="avatar">
+                                        <span class="avatar-initial rounded-circle bg-label-warning"><i class="icon-base bx bx-wrench"></i></span>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-1">Maintenance Due</h6>
+                                    <p class="mb-0">Honda CR-V requires service</p>
+                                    <small class="text-body-secondary">1 hour ago</small>
+                                </div>
+                                <div class="flex-shrink-0 dropdown-notifications-actions">
+                                    <a href="javascript:void(0)" class="dropdown-notifications-read"><span class="badge rounded-pill badge-dot bg-warning"></span></a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown-menu-footer border-top">
+                    <a href="javascript:void(0);" class="dropdown-item d-flex justify-content-center text-primary p-2 h-px-35">
+                        View all notifications
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <!-- /Notifications -->
+        <!-- User -->
+        <li class="nav-item navbar-dropdown dropdown-user dropdown">
+            <a class="nav-link dropdown-toggle hide-arrow p-0" href="javascript:void(0);" data-bs-toggle="dropdown">
+                <div class="avatar avatar-online">
+                    <img src="~/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                </div>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                    <a class="dropdown-item" href="javascript:void(0);">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0 me-3">
+                                <div class="avatar avatar-online">
+                                    <img src="~/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                                </div>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h6 class="mb-0">John Doe</h6>
+                                <small class="text-body-secondary">Admin</small>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <div class="dropdown-divider my-1"></div>
+                </li>
+                <li>
+                    <a class="dropdown-item" asp-controller="Pages" asp-action="ProfileUser"> <i class="icon-base bx bx-user icon-md me-3"></i><span>My Profile</span> </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" asp-controller="Pages" asp-action="AccountSettings"> <i class="icon-base bx bx-cog icon-md me-3"></i><span>Settings</span> </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="javascript:void(0);">
+                        <span class="d-flex align-items-center align-middle">
+                            <i class="flex-shrink-0 icon-base bx bx-car icon-md me-3"></i><span class="flex-grow-1 align-middle">My Reservations</span>
+                            <span class="flex-shrink-0 badge rounded-pill bg-primary">2</span>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <div class="dropdown-divider my-1"></div>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="javascript:void(0);"> <i class="icon-base bx bx-power-off icon-md me-3"></i><span>Log Out</span> </a>
+                </li>
+            </ul>
+        </li>
+        <!--/ User -->
+
+    </ul>
+</div>
+

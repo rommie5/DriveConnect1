@@ -1,0 +1,78 @@
+@{
+    ViewData["Title"] = "All Reservations";
+}
+
+Welcome to the Reservations List Page!
+<!-- Content -->
+<div class="container-xxl flex-grow-1 container-p-y">
+
+    <!-- Header -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h4 class="mb-0">My Reservations</h4>
+                    <a asp-controller="Reservations" asp-action="Create" class="btn btn-primary">
+                        <i class="icon-base bx bx-plus me-1"></i>New Reservation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filters & Search (Static Frontend Only) -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row g-3">
+
+                        <div class="col-md-4">
+                            <label for="search" class="form-label">Search Reservation</label>
+                            <input type="text" class="form-control" id="search"
+                                   placeholder="Search by car, reference number">
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="status" class="form-label">Status</label>
+                            <select class="form-select" id="status">
+                                <option value="">All Status</option>
+                                <option value="pending">Pending</option>
+                                <option value="confirmed">Confirmed</option>
+                                <option value="completed">Completed</option>
+                                <option value="cancelled">Cancelled</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-5 d-flex align-items-end">
+                            <button type="button" class="btn btn-outline-secondary me-2">
+                                <i class="icon-base bx bx-reset me-1"></i>Reset
+                            </button>
+                            <button type="button" class="btn btn-primary">
+                                <i class="icon-base bx bx-filter me-1"></i>Apply
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Empty State -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body text-center py-5">
+                    <i class="icon-base bx bx-calendar-minus text-muted display-1 mb-3"></i>
+                    <h4 class="text-muted">No Reservations Yet</h4>
+                    <p class="text-muted mb-4">Start by booking your first vehicle reservation.</p>
+                    <a asp-controller="Reservations" asp-action="Create" class="btn btn-primary">
+                        <i class="icon-base bx bx-plus me-1"></i>Make a Reservation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,13 @@
+
+@{
+    Layout = "_UserLayout";
+    ViewData["Title"] = "Booking Details";
+}
+
+<h2>Booking Details</h2>
+
+<p><strong>Car:</strong> @Model.Car.Make @Model.Car.Model</p>
+<p><strong>Start Date:</strong> @Model.StartDate.ToShortDateString()</p>
+<p><strong>End Date:</strong> @Model.EndDate.ToShortDateString()</p>
+<p><strong>Status:</strong> @Model.Status</p>
+<p><strong>Total Price:</strong> @Model.TotalPrice.ToString("C")</p>

@@ -1,0 +1,94 @@
+@{
+    ViewData["Title"] = "Reservation Details";
+}
+
+<!-- Content -->
+<div class="container-xxl flex-grow-1 container-p-y">
+
+    <!-- Page Header -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <h4 class="fw-bold">
+                <i class="bx bx-info-circle me-2"></i>Reservation Details
+            </h4>
+        </div>
+    </div>
+
+    <!-- Reservation + Car Details -->
+    <div class="row">
+        <!-- Reservation Info Card -->
+        <div class="col-md-6 mb-4">
+            <div class="card border-primary">
+                <div class="card-header bg-primary text-white">
+                    <strong>Reservation Information</strong>
+                </div>
+                <div class="card-body">
+                    <p><strong>Reservation ID:</strong> RZ-00123</p>
+                    <p><strong>Status:</strong> <span class="badge bg-warning">Upcoming</span></p>
+                    <p><strong>Pickup Date:</strong> 2025-11-05 • 10:00 AM</p>
+                    <p><strong>Return Date:</strong> 2025-11-10 • 03:00 PM</p>
+                    <p><strong>Payment Status:</strong> <span class="badge bg-success">Paid</span></p>
+                    <p><strong>Total Cost:</strong> $420.00</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Customer Info Card -->
+        <div class="col-md-6 mb-4">
+            <div class="card border-secondary">
+                <div class="card-header bg-secondary text-white">
+                    <strong>Customer Information</strong>
+                </div>
+                <div class="card-body">
+                    <p><strong>Name:</strong> John Doe</p>
+                    <p><strong>Email:</strong> john@example.com</p>
+                    <p><strong>Phone:</strong> +256 712 345 678</p>
+                    <p><strong>Driver License:</strong> A1234567</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vehicle Details -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card border-info">
+                <div class="card-header bg-info text-white">
+                    <strong>Vehicle Information</strong>
+                </div>
+                <div class="card-body row">
+                    <div class="col-md-4 text-center">
+                        <img src="https://via.placeholder.com/300x180"
+                             class="img-fluid rounded"
+                             alt="Vehicle Photo">
+                    </div>
+                    <div class="col-md-8">
+                        <p><strong>Make & Model:</strong> Toyota Corolla 2022</p>
+                        <p><strong>Category:</strong> Midsize</p>
+                        <p><strong>Transmission:</strong> Automatic</p>
+                        <p><strong>Fuel Type:</strong> Petrol</p>
+                        <p><strong>Plate Number:</strong> UBA 123A</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="row mt-4">
+        <div class="col-12 d-flex justify-content-between">
+            <a href="/Reservations" class="btn btn-outline-secondary">
+                <i class="bx bx-arrow-back me-1"></i>Back to List
+            </a>
+            <div>
+                <button class="btn btn-danger me-2">
+                    <i class="bx bx-x me-1"></i>Cancel Reservation
+                </button>
+                <button class="btn btn-primary">
+                    <i class="bx bx-edit me-1"></i>Edit Reservation
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>

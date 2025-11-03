@@ -1,0 +1,138 @@
+@{
+    ViewData["Title"] = "Fleet Utilization";
+}
+
+<div class="container-xxl flex-grow-1 container-p-y">
+
+    <!-- Header -->
+    <div class="row mb-4">
+        <div class="col-12 d-flex justify-content-between align-items-center">
+            <h4 class="fw-bold mb-0">
+                <i class="bx bx-bar-chart-alt-2 me-2"></i>Fleet Utilization
+            </h4>
+            <a href="/Reports" class="btn btn-outline-secondary">
+                <i class="bx bx-arrow-back me-1"></i>Back to Reports
+            </a>
+        </div>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="row g-4 mb-4">
+        <div class="col-md-3">
+            <div class="card text-center border-primary">
+                <div class="card-body">
+                    <h5 class="card-title">Total Vehicles</h5>
+                    <h3 class="text-primary">120</h3>
+                    <p class="text-muted mb-0">Fleet Size</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-center border-success">
+                <div class="card-body">
+                    <h5 class="card-title">Active Rentals</h5>
+                    <h3 class="text-success">75</h3>
+                    <p class="text-muted mb-0">Currently Rented</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-center border-warning">
+                <div class="card-body">
+                    <h5 class="card-title">Available Vehicles</h5>
+                    <h3 class="text-warning">40</h3>
+                    <p class="text-muted mb-0">Ready for Booking</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-center border-danger">
+                <div class="card-body">
+                    <h5 class="card-title">Maintenance</h5>
+                    <h3 class="text-danger">5</h3>
+                    <p class="text-muted mb-0">Under Maintenance</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fleet Utilization Chart -->
+    <div class="row g-4 mb-4">
+        <div class="col-12 col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Fleet Utilization (%)</h5>
+                </div>
+                <div class="card-body">
+                    <canvas id="utilizationChart" height="250"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Rental Status Breakdown</h5>
+                </div>
+                <div class="card-body">
+                    <canvas id="rentalStatusChart" height="250"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Rentals Table -->
+    <div class="row g-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Recent Rentals</h5>
+                </div>
+                <div class="card-body table-responsive">
+                    <table class="table table-bordered table-striped text-center mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Rental ID</th>
+                                <th>Vehicle</th>
+                                <th>Customer</th>
+                                <th>Status</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#R1012</td>
+                                <td>Toyota Camry</td>
+                                <td>John Doe</td>
+                                <td><span class="badge bg-success">Active</span></td>
+                                <td>2025-10-25</td>
+                                <td>2025-10-30</td>
+                            </tr>
+                            <tr>
+                                <td>#R1013</td>
+                                <td>Honda Civic</td>
+                                <td>Jane Smith</td>
+                                <td><span class="badge bg-warning">Upcoming</span></td>
+                                <td>2025-11-02</td>
+                                <td>2025-11-05</td>
+                            </tr>
+                            <tr>
+                                <td>#R1014</td>
+                                <td>Ford Explorer</td>
+                                <td>Mike Johnson</td>
+                                <td><span class="badge bg-danger">Completed</span></td>
+                                <td>2025-10-10</td>
+                                <td>2025-10-15</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

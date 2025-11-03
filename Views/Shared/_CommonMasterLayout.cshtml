@@ -1,0 +1,122 @@
+@{
+  @* Compact/Fluid class *@
+  ViewData["contentType"] = ViewData["container"] is string container && container == "container-xxl" ? "layout-compact layout-menu-fixed" : "";
+}
+
+@inject IHttpContextAccessor httpContextAccessor
+
+<!DOCTYPE html>
+<html lang="en" class="@(ViewData["navbarType"] is string navbarType ? navbarType : "")
+@(ViewData["menuFixed"] is string menuFixed ? menuFixed : "")
+@(ViewData["menuCollapsed"] is string menuCollapsed ? menuCollapsed : "")
+@(ViewData["contentType"] is string contentType ? contentType : "")
+@(ViewData["footerFixed"] is string footerFixed ? footerFixed : "")
+@(ViewData["customizerHidden"] is string customizerHidden ? customizerHidden : "")" dir="ltr" data-skin="default" data-bs-theme="light" data-assets-path='@((httpContextAccessor.HttpContext?.Request.PathBase ?? "") + "/")' data-template='@(("vertical-menu-template-free"))'>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+
+  @{
+    string title = ViewData["title"] as string ?? "";
+    string appName = TempData.Peek("appName") as string ?? "";
+    string productPage = TempData.Peek("productPage") as string ?? "";
+    }
+    <title>@title | @appName </title>
+    <meta name="description" content="Drive Connect - Professional Car Rental Management System" />
+
+  <!-- Canonical SEO -->
+  <link rel="canonical" href='@productPage'>
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="~/img/favicon/favicon.ico" />
+
+  <!-- Core Styles -->
+  @await Html.PartialAsync("Sections/_Styles")
+
+  <!-- Vendor Styles -->
+  @RenderSection("VendorStyles", required: false)
+
+  <!-- Page Styles -->
+  @RenderSection("PageStyles", required: false)
+
+  <!-- Include Scripts for customizer, helper, analytics, config -->
+  @await Html.PartialAsync("Sections/_ScriptsIncludes")
+</head>
+
+<body>
+  <!-- Layout Content -->
+  @RenderBody()
+  <!--/ Layout Content -->
+
+  @await Html.PartialAsync("Sections/_Scripts")
+
+  @RenderSection("VendorScripts", required: false)
+
+
+    <!-- Search Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="true" data-bs-keyboard="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-0 pb-0">
+                    <div class="w-100 position-relative">
+                        <i class="icon-base bx bx-search icon-lg position-absolute top-50 start-0 translate-middle-y ms-4 text-body-secondary"></i>
+                        <input type="text" class="form-control border-0 shadow-none ps-10 fs-6 py-3" placeholder="Search vehicles, customers, reservations..." autofocus id="searchModalInput" />
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <!-- Quick Actions -->
+                    <div class="border-bottom p-4">
+                        <h6 class="mb-3 text-body">Quick Actions</h6>
+                        <div class="d-flex flex-wrap gap-2">
+                            <a href="javascript:void(0);" class="btn btn-outline-primary btn-sm">New Reservation</a>
+                            <a href="javascript:void(0);" class="btn btn-outline-primary btn-sm">Add Vehicle</a>
+                            <a href="javascript:void(0);" class="btn btn-outline-primary btn-sm">Customer Lookup</a>
+                            <a href="javascript:void(0);" class="btn btn-outline-primary btn-sm">Maintenance Schedule</a>
+                        </div>
+                    </div>
+
+                    <!-- Recent Searches -->
+                    <div class="p-4">
+                        <h6 class="mb-3 text-body">Recent Searches</h6>
+                        <div class="list-group list-group-flush">
+                            <a href="javascript:void(0);" class="list-group-item list-group-item-action border-0 py-2">
+                                <div class="d-flex align-items-center">
+                                    <i class="icon-base bx bx-time text-body-secondary me-3"></i>
+                                    <span class="text-body">Toyota Camry</span>
+                                </div>
+                            </a>
+                            <a href="javascript:void(0);" class="list-group-item list-group-item-action border-0 py-2">
+                                <div class="d-flex align-items-center">
+                                    <i class="icon-base bx bx-time text-body-secondary me-3"></i>
+                                    <span class="text-body">John Smith</span>
+                                </div>
+                            </a>
+                            <a href="javascript:void(0);" class="list-group-item list-group-item-action border-0 py-2">
+                                <div class="d-flex align-items-center">
+                                    <i class="icon-base bx bx-time text-body-secondary me-3"></i>
+                                    <span class="text-body">Reservation #RC-2847</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Search Modal -->
+
+
+  
+
+  <!-- Main JS-->
+  <script src='~/js/main.js'></script>
+
+  @RenderSection("PageScripts", required: false)
+
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+</body>
+
+</html>

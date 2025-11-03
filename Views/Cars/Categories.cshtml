@@ -1,0 +1,373 @@
+@{
+    ViewData["Title"] = "Vehicle Categories";
+}
+
+<!-- Content -->
+<div class="container-xxl flex-grow-1 container-p-y">
+    <!-- Header -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <div>
+                        <h4 class="mb-0">Vehicle Categories</h4>
+                        <p class="text-body-secondary mb-0">Manage your rental vehicle categories and pricing</p>
+                    </div>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCategoryModal">
+                        <i class="icon-base bx bx-plus me-1"></i>Add Category
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Statistics Cards -->
+    <div class="row mb-4">
+        <div class="col-sm-6 col-lg-3 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title d-flex align-items-start justify-content-between">
+                        <div class="avatar flex-shrink-0">
+                            <span class="avatar-initial rounded bg-label-primary">
+                                <i class="icon-base bx bx-category"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <span class="fw-medium d-block mb-1">Total Categories</span>
+                    <h4 class="card-title mb-2">8</h4>
+                    <small class="text-success fw-medium"><i class="icon-base bx bx-up-arrow-alt"></i> +2 new</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title d-flex align-items-start justify-content-between">
+                        <div class="avatar flex-shrink-0">
+                            <span class="avatar-initial rounded bg-label-success">
+                                <i class="icon-base bx bx-car"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <span class="fw-medium d-block mb-1">Available Vehicles</span>
+                    <h4 class="card-title mb-2">42</h4>
+                    <small class="text-success fw-medium"><i class="icon-base bx bx-up-arrow-alt"></i> +5 this week</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title d-flex align-items-start justify-content-between">
+                        <div class="avatar flex-shrink-0">
+                            <span class="avatar-initial rounded bg-label-warning">
+                                <i class="icon-base bx bx-dollar"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <span class="fw-medium d-block mb-1">Avg. Daily Rate</span>
+                    <h4 class="card-title mb-2">$45.75</h4>
+                    <small class="text-success fw-medium"><i class="icon-base bx bx-up-arrow-alt"></i> +2.5%</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title d-flex align-items-start justify-content-between">
+                        <div class="avatar flex-shrink-0">
+                            <span class="avatar-initial rounded bg-label-info">
+                                <i class="icon-base bx bx-trending-up"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <span class="fw-medium d-block mb-1">Utilization Rate</span>
+                    <h4 class="card-title mb-2">78.4%</h4>
+                    <small class="text-success fw-medium"><i class="icon-base bx bx-up-arrow-alt"></i> +8.2%</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Categories Table -->
+    <div class="card">
+        <div class="card-datatable table-responsive">
+            <table class="datatables-vehicles table border-top" id="categoriesTable">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Vehicle Count</th>
+                        <th>Daily Rate</th>
+                        <th>Weekly Rate</th>
+                        <th>Utilization</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="avatar avatar-sm me-3">
+                                    <span class="avatar-initial rounded bg-label-primary">
+                                        <i class="icon-base bx bx-car"></i>
+                                    </span>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0">Economy</h6>
+                                    <small class="text-body-secondary">Compact, fuel-efficient cars</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>12</td>
+                        <td>$35.00</td>
+                        <td>$220.50</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="progress w-100 me-3" style="height: 6px;">
+                                    <div class="progress-bar bg-success" style="width: 85%"></div>
+                                </div>
+                                <span>85%</span>
+                            </div>
+                        </td>
+                        <td><span class="badge bg-label-success">Active</span></td>
+                        <td>
+                            <div class="d-inline-block">
+                                <button class="btn btn-sm btn-icon edit-category" data-id="1" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
+                                    <i class="icon-base bx bx-edit"></i>
+                                </button>
+                                <button class="btn btn-sm btn-icon delete-category" data-id="1" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
+                                    <i class="icon-base bx bx-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="avatar avatar-sm me-3">
+                                    <span class="avatar-initial rounded bg-label-info">
+                                        <i class="icon-base bx bx-car"></i>
+                                    </span>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0">Compact</h6>
+                                    <small class="text-body-secondary">Small sedans and hatchbacks</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>8</td>
+                        <td>$42.00</td>
+                        <td>$264.60</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="progress w-100 me-3" style="height: 6px;">
+                                    <div class="progress-bar bg-success" style="width: 72%"></div>
+                                </div>
+                                <span>72%</span>
+                            </div>
+                        </td>
+                        <td><span class="badge bg-label-success">Active</span></td>
+                        <td>
+                            <div class="d-inline-block">
+                                <button class="btn btn-sm btn-icon edit-category" data-id="2">
+                                    <i class="icon-base bx bx-edit"></i>
+                                </button>
+                                <button class="btn btn-sm btn-icon delete-category" data-id="2">
+                                    <i class="icon-base bx bx-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="avatar avatar-sm me-3">
+                                    <span class="avatar-initial rounded bg-label-success">
+                                        <i class="icon-base bx bx-car"></i>
+                                    </span>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0">Midsize</h6>
+                                    <small class="text-body-secondary">Family sedans</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>15</td>
+                        <td>$55.00</td>
+                        <td>$346.50</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="progress w-100 me-3" style="height: 6px;">
+                                    <div class="progress-bar bg-success" style="width: 91%"></div>
+                                </div>
+                                <span>91%</span>
+                            </div>
+                        </td>
+                        <td><span class="badge bg-label-success">Active</span></td>
+                        <td>
+                            <div class="d-inline-block">
+                                <button class="btn btn-sm btn-icon edit-category" data-id="3">
+                                    <i class="icon-base bx bx-edit"></i>
+                                </button>
+                                <button class="btn btn-sm btn-icon delete-category" data-id="3">
+                                    <i class="icon-base bx bx-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="avatar avatar-sm me-3">
+                                    <span class="avatar-initial rounded bg-label-warning">
+                                        <i class="icon-base bx bx-car"></i>
+                                    </span>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0">SUV</h6>
+                                    <small class="text-body-secondary">Sports Utility Vehicles</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>10</td>
+                        <td>$75.00</td>
+                        <td>$472.50</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="progress w-100 me-3" style="height: 6px;">
+                                    <div class="progress-bar bg-success" style="width: 68%"></div>
+                                </div>
+                                <span>68%</span>
+                            </div>
+                        </td>
+                        <td><span class="badge bg-label-success">Active</span></td>
+                        <td>
+                            <div class="d-inline-block">
+                                <button class="btn btn-sm btn-icon edit-category" data-id="4">
+                                    <i class="icon-base bx bx-edit"></i>
+                                </button>
+                                <button class="btn btn-sm btn-icon delete-category" data-id="4">
+                                    <i class="icon-base bx bx-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="avatar avatar-sm me-3">
+                                    <span class="avatar-initial rounded bg-label-danger">
+                                        <i class="icon-base bx bx-car"></i>
+                                    </span>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0">Luxury</h6>
+                                    <small class="text-body-secondary">Premium vehicles</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>6</td>
+                        <td>$120.00</td>
+                        <td>$756.00</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="progress w-100 me-3" style="height: 6px;">
+                                    <div class="progress-bar bg-warning" style="width: 45%"></div>
+                                </div>
+                                <span>45%</span>
+                            </div>
+                        </td>
+                        <td><span class="badge bg-label-warning">Low Demand</span></td>
+                        <td>
+                            <div class="d-inline-block">
+                                <button class="btn btn-sm btn-icon edit-category" data-id="5">
+                                    <i class="icon-base bx bx-edit"></i>
+                                </button>
+                                <button class="btn btn-sm btn-icon delete-category" data-id="5">
+                                    <i class="icon-base bx bx-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- / Content -->
+<!-- Add Category Modal -->
+<div class="modal fade" id="addCategoryModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add New Vehicle Category</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="addCategoryForm">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="categoryName" class="form-label">Category Name <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="categoryName" name="categoryName" placeholder="e.g., Economy, SUV, Luxury" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="categoryIcon" class="form-label">Icon Class</label>
+                            <input type="text" class="form-control" id="categoryIcon" name="categoryIcon" placeholder="e.g., bx bx-car" value="bx bx-car">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="categoryDescription" class="form-label">Description</label>
+                        <textarea class="form-control" id="categoryDescription" name="categoryDescription" rows="3" placeholder="Brief description of this category"></textarea>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label for="dailyRate" class="form-label">Daily Rate ($) <span class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="number" class="form-control" id="dailyRate" name="dailyRate" placeholder="0.00" step="0.01" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="weeklyRate" class="form-label">Weekly Rate ($)</label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="number" class="form-control" id="weeklyRate" name="weeklyRate" placeholder="0.00" step="0.01">
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="monthlyRate" class="form-label">Monthly Rate ($)</label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="number" class="form-control" id="monthlyRate" name="monthlyRate" placeholder="0.00" step="0.01">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="securityDeposit" class="form-label">Initial Deposit ($)</label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="number" class="form-control" id="securityDeposit" name="securityDeposit" placeholder="0.00" step="0.01">
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="status" class="form-label">Status</label>
+                            <select class="form-select" id="status" name="status">
+                                <option value="active" selected>Active</option>
+                                <option value="inactive">Inactive</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" form="addCategoryForm" class="btn btn-primary">Add Category</button>
+            </div>
+        </div>
+    </div>
+</div>

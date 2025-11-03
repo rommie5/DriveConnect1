@@ -1,0 +1,130 @@
+@{
+    ViewData["Title"] = "Invoices";
+}
+
+<div class="container-xxl flex-grow-1 container-p-y">
+
+    <!-- Header -->
+    <div class="row mb-4">
+        <div class="col-12 d-flex justify-content-between align-items-center">
+            <h4 class="fw-bold mb-0">
+                <i class="bx bx-receipt me-2"></i>Invoices
+            </h4>
+            <a href="/Billing/Create" class="btn btn-primary">
+                <i class="bx bx-plus me-1"></i>Create Invoice
+            </a>
+        </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="row g-3">
+
+                <div class="col-md-4">
+                    <label class="form-label">Search</label>
+                    <input type="text" class="form-control" placeholder="Search invoice number, customer...">
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label">Invoice Status</label>
+                    <select class="form-select">
+                        <option value="">All</option>
+                        <option value="paid">Paid</option>
+                        <option value="pending">Pending</option>
+                        <option value="overdue">Overdue</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label">Date</label>
+                    <input type="date" class="form-control">
+                </div>
+
+                <div class="col-md-2 d-flex align-items-end">
+                    <button class="btn btn-primary w-100">
+                        <i class="bx bx-filter me-1"></i>Apply
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Table -->
+    <div class="card">
+        <div class="table-responsive">
+            <table class="table table-hover mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th>#</th>
+                        <th>Invoice No</th>
+                        <th>Customer</th>
+                        <th>Date Issued</th>
+                        <th>Due Date</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <!-- Sample demo row -->
+                    <tr>
+                        <td>1</td>
+                        <td><strong>INV-001245</strong></td>
+                        <td>John Doe</td>
+                        <td>Oct 29, 2025</td>
+                        <td>Nov 5, 2025</td>
+                        <td>$235.99</td>
+                        <td><span class="badge bg-warning text-dark">Pending</span></td>
+                        <td class="text-center">
+                            <a href="/Billing/Details/1" class="btn btn-sm btn-info">
+                                <i class="bx bx-show"></i>
+                            </a>
+                            <a href="/Billing/Edit/1" class="btn btn-sm btn-primary">
+                                <i class="bx bx-edit"></i>
+                            </a>
+                            <button class="btn btn-sm btn-danger">
+                                <i class="bx bx-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td><strong>INV-001230</strong></td>
+                        <td>Emily Clark</td>
+                        <td>Oct 10, 2025</td>
+                        <td>Oct 17, 2025</td>
+                        <td>$532.00</td>
+                        <td><span class="badge bg-success">Paid</span></td>
+                        <td class="text-center">
+                            <a href="/Billing/Details/2" class="btn btn-sm btn-info">
+                                <i class="bx bx-show"></i>
+                            </a>
+                            <a href="/Billing/Edit/2" class="btn btn-sm btn-primary">
+                                <i class="bx bx-edit"></i>
+                            </a>
+                            <button class="btn btn-sm btn-danger">
+                                <i class="bx bx-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <!-- If no records -->
+                    <tr>
+                        <td colspan="8" class="text-center text-muted py-4">
+                            No invoice records found.
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+</div>

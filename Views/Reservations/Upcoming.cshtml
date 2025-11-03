@@ -1,0 +1,100 @@
+@{
+    ViewData["Title"] = "Upcoming Rentals";
+}
+
+<!-- Content -->
+<div class="container-xxl flex-grow-1 container-p-y">
+
+    <!-- Header -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h4 class="mb-0">Upcoming Rentals</h4>
+                    <a asp-controller="Reservations" asp-action="Create" class="btn btn-primary">
+                        <i class="bx bx-plus me-1"></i>Reserve a Car
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- If No Reservations -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body text-center py-5">
+                    <i class="bx bx-calendar-event text-muted display-1 mb-3"></i>
+                    <h4 class="text-muted">No Upcoming Rentals</h4>
+                    <p class="text-muted mb-4">
+                        You don’t have any future bookings scheduled yet.
+                    </p>
+                    <a asp-controller="Reservations" asp-action="Create" class="btn btn-primary">
+                        <i class="bx bx-car me-1"></i>Book a Car
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sample Cards UI Preview -->
+    <div class="row mt-4">
+
+        <!-- Card 1 -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm">
+                <img src="https://via.placeholder.com/400x220?text=Honda+Civic" class="card-img-top" alt="Vehicle Image">
+
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Honda Civic 2021</h5>
+
+                    <div class="small text-muted mb-2">
+                        <i class="bx bx-calendar"></i> Pickup: Jan 18, 2025<br />
+                        <i class="bx bx-calendar-check"></i> Return: Jan 23, 2025
+                    </div>
+
+                    <span class="badge bg-warning mb-3">Upcoming</span>
+
+                    <div class="d-flex justify-content-between">
+                        <a asp-controller="Reservations" asp-action="Details" class="btn btn-sm btn-outline-primary">
+                            Details
+                        </a>
+                        <button class="btn btn-sm btn-outline-danger">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm">
+                <img src="https://via.placeholder.com/400x220?text=Range+Rover" class="card-img-top" alt="Vehicle Image">
+
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Range Rover Sport 2024</h5>
+
+                    <div class="small text-muted mb-2">
+                        <i class="bx bx-calendar"></i> Pickup: Jan 29, 2025<br />
+                        <i class="bx bx-calendar-check"></i> Return: Feb 04, 2025
+                    </div>
+
+                    <span class="badge bg-info mb-3">Pending Vendor Approval</span>
+
+                    <div class="d-flex justify-content-between">
+                        <a asp-controller="Reservations" asp-action="Details" class="btn btn-sm btn-outline-primary">
+                            Details
+                        </a>
+                        <button class="btn btn-sm btn-outline-danger">
+                            Cancel Request
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<!-- /Content -->

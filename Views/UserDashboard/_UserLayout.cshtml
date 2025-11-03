@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - DriveConnect</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a asp-controller="UserDashboard" asp-action="Index">Home</a></li>
+                <li><a asp-controller="UserDashboard" asp-action="MyBookings">My Bookings</a></li>
+                <li><a asp-controller="UserDashboard" asp-action="Payments">Payments</a></li>
+                <li><form asp-controller="Account" asp-action="Logout" method="post">
+                    <button type="submit">Logout</button>
+                </form></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+    <footer>
+        <p>&copy; 2025 DriveConnect</p>
+    </footer>
+</body>
+</html>

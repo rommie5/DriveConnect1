@@ -1,0 +1,21 @@
+
+
+@{
+    Layout = "_UserLayout";
+    ViewData["Title"] = "Available Cars";
+}
+
+<h2>Available Cars</h2>
+
+<div class="car-grid">
+    @foreach(var car in Model)
+    {
+        <div class="car-card">
+            <img src="@car.ImageUrl" alt="@car.Make @car.Model" />
+            <h3>@car.Make @car.Model</h3>
+            <p>Location: @car.Location</p>
+            <p>Price per Day: @car.PricePerDay.ToString("C")</p>
+            <a asp-controller="Bookings" asp-action="Create" asp-route-carId="@car.Id">Book Now</a>
+        </div>
+    }
+</div>
