@@ -1,0 +1,53 @@
+@{
+    Layout = "_CustomerLayout";
+    ViewData["Title"] = "Active Rentals";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h3 class="fw-bold">Active Rentals</h3>
+    <a asp-action="Index" class="btn btn-outline-primary">
+        <i class="bx bx-arrow-back"></i> Back to Dashboard
+    </a>
+</div>
+
+@if (false) // change to Model.Count == 0 when backend is connected
+{
+    <div class="card text-center p-5 shadow-sm">
+        <i class="bx bxs-car-wash fs-1 text-muted mb-3"></i>
+        <h5>No Active Rentals</h5>
+        <p class="text-muted">Look for a new ride and start exploring now 🚗💨</p>
+        <a asp-controller="Reservations" asp-action="Index" class="btn btn-primary">
+            <i class="bx bx-plus"></i> Reserve a Car
+        </a>
+    </div>
+}
+else
+{
+    <div class="row g-4">
+        <!-- Example Dummy Active Car Card (Frontend Demo Only) -->
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+                <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Car Image" />
+
+                <div class="card-body">
+                    <h5 class="card-title fw-semibold">Toyota Premio</h5>
+                    <p class="text-muted small mb-2">Reg No: UBA 123A</p>
+
+                    <div class="mb-2">
+                        <span class="badge bg-success">In Use</span>
+                    </div>
+
+                    <p class="mb-1"><strong>From:</strong> 04 Nov 2025</p>
+                    <p class="mb-1"><strong>Return Date:</strong> 10 Nov 2025</p>
+                    <p><strong>Cost:</strong> UGX 350,000</p>
+
+                    <a asp-action="Details" class="btn btn-primary w-100">
+                        <i class="bx bx-info-circle"></i> View Details
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional cards can be copied for demo purposes -->
+    </div>
+}

@@ -1,0 +1,58 @@
+@{
+    Layout = "_CustomerLayout";
+    ViewData["Title"] = "Upcoming Reservations";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h3 class="fw-bold">Upcoming Reservations</h3>
+    <a asp-action="Index" class="btn btn-outline-primary">
+        <i class="bx bx-arrow-back"></i> Back to Dashboard
+    </a>
+</div>
+
+@if (false) // replace with Model.Count == 0 once backend is connected
+{
+    <div class="card text-center p-5 shadow-sm">
+        <i class="bx bx-time-five fs-1 text-muted mb-3"></i>
+        <h5>No Upcoming Reservations</h5>
+        <p class="text-muted">Plan ahead and reserve your next ride today! 🚗</p>
+        <a asp-controller="Reservations" asp-action="Index" class="btn btn-primary">
+            <i class="bx bx-car"></i> Browse Cars
+        </a>
+    </div>
+}
+else
+{
+    <div class="row g-4">
+
+        <!-- Sample Upcoming Reservation Card (Dummy data for UI preview only) -->
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+                <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Car Image" />
+
+                <div class="card-body">
+                    <h5 class="card-title fw-semibold">BMW X5</h5>
+                    <p class="text-muted small mb-2">Reg No: UBD 456H</p>
+
+                    <div class="mb-2">
+                        <span class="badge bg-info">Upcoming</span>
+                    </div>
+
+                    <p class="mb-1"><strong>Pickup Date:</strong> 12 Nov 2025</p>
+                    <p class="mb-1"><strong>Return Date:</strong> 18 Nov 2025</p>
+                    <p><strong>Total Cost:</strong> UGX 820,000</p>
+
+                    <a asp-action="Details" class="btn btn-primary w-100 mb-2">
+                        <i class="bx bx-info-circle"></i> View Details
+                    </a>
+
+                    <button class="btn btn-outline-danger w-100">
+                        <i class="bx bx-x-circle"></i> Cancel Reservation
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copy more reservation cards for demo -->
+    </div>
+}
